@@ -2,11 +2,7 @@ import React from "react";
 import CreateNotification from "../component/CreateNotification";
 
 const Home = () => {
-  return (
-    <>
-      <CreateNotification />
-    </>
-  );
+  return <></>;
 };
 
 export default Home;
