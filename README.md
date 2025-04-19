@@ -1,6 +1,6 @@
 **To run the code first fork and clone it:**
 
-> `git clone url`
+> `git clone https://github.com/sadid14n/BVECNewsFeed.git`
 
 
 # step1: 
