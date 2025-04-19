@@ -1,8 +1,13 @@
 import React from "react";
 import CreateNotification from "../component/CreateNotification";
+import PrincipalNotifications from "../component/PrincipalNotificatons";
 
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <PrincipalNotifications />
+    </>
+  );
 };
 
 export default Home;

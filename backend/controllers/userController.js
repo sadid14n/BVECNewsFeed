@@ -64,6 +64,11 @@ const loginController = async (req, res) => {
     res.status(200).send({
       success: true,
       message: "Login Successfully",
+      user: {
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
       token,
     });
   } catch (error) {
@@ -75,4 +80,51 @@ const loginController = async (req, res) => {
   }
 };
 
-export { registerController, loginController };
+const updateUserProfileController = async (req, res) => {
+  try {
+    const userId = req.user;
+
+    const updates = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(userId, updates, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Profile updated successfully",
+      user: {
+        name: updatedUser.name,
+        email: updatedUser.email,
+        role: updatedUser.role,
+      },
+    });
+  } catch (error) {
+    console.error("Error updating user profile:", error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+};
+
+const testController = (req, res) => {
+  try {
+    res.send("Protected routes");
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
+
+const getProfileController = async (req, res) => {};
+
+export {
+  registerController,
+  loginController,
+  testController,
+  getProfileController,
+  updateUserProfileController,
+};

@@ -1,7 +1,12 @@
 import React from "react";
+import CreateNotification from "../component/CreateNotification";
 
 const Sample = () => {
-  return <div>Sample</div>;
+  return (
+    <>
+      <CreateNotification />
+    </>
+  );
 };
 
 export default Sample;

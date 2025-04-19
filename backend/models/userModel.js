@@ -7,8 +7,12 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     role: {
       type: String,
-      enum: ["principal", "student_union", "department", "club"],
       required: true,
+    },
+    posts: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: "Post",
+      default: [],
     },
   },
   { timestamps: true }

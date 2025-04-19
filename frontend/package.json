@@ -5,15 +5,25 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "@react-pdf/renderer": "^4.3.0",
     "@tailwindcss/vite": "^4.0.17",
+    "axios": "^1.8.4",
+    "pdfjs-dist": "^3.4.120",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
+    "react-pdf": "^7.0.0",
     "react-router-dom": "^7.5.0",
+    "react-share": "^5.2.2",
+    "reactjs-popup": "^2.0.6",
     "tailwindcss": "^4.0.17"
   },
   "devDependencies": {
