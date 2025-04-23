@@ -14,7 +14,7 @@ const AdminMenu = () => {
       user: null,
       token: "",
     });
-    navigate("/login");
+    navigate("/");
   };
 
   const isActive = (path) =>

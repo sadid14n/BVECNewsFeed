@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getProfileByRoleController,
   loginController,
   registerController,
   testController,
@@ -19,5 +20,7 @@ router.put("/update-profile", requireSignIn, updateUserProfileController);
 router.get("/user-auth", requireSignIn, (req, res) => {
   res.status(200).send({ ok: true });
 });
+
+router.get("/role/:role", getProfileByRoleController);
 
 export default router;

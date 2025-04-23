@@ -119,12 +119,29 @@ const testController = (req, res) => {
   }
 };
 
-const getProfileController = async (req, res) => {};
+const getProfileByRoleController = async (req, res) => {
+  try {
+    const { role } = req.params;
+
+    const users = await User.find({ role });
+
+    res.status(200).json({
+      success: true,
+      data: users,
+    });
+  } catch (error) {
+    console.error("Error fetching posts by role:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error while fetching posts by role.",
+    });
+  }
+};
 
 export {
   registerController,
   loginController,
   testController,
-  getProfileController,
+  getProfileByRoleController,
   updateUserProfileController,
 };

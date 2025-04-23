@@ -4,6 +4,7 @@ import {
   deleteNotificationController,
   getAllNotificationController,
   getNotificationsByAuthorEmail,
+  getPostsByRole,
   getSingleNotificationController,
 } from "../controllers/notificationController.js";
 import multer from "multer";
@@ -42,5 +43,6 @@ router.get(
 router.get("/notification/:id", getSingleNotificationController);
 
 router.delete("/delete/:id", requireSignIn, deleteNotificationController);
+router.get("/role/:role", getPostsByRole);
 
 export default router;

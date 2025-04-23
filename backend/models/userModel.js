@@ -9,6 +9,8 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    dept: { type: String },
+    club: { type: String },
     posts: {
       type: [mongoose.Schema.Types.ObjectId],
       ref: "Post",

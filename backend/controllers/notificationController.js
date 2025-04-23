@@ -70,9 +70,9 @@ export const getNotificationsByAuthorEmail = async (req, res) => {
 
 export const getSingleNotificationController = async (req, res) => {
   try {
-    const notificationId = req.params.id;
+    const { id } = req.params;
 
-    const notification = await Post.findById(notificationId).populate(
+    const notification = await Post.findById(id).populate(
       "author",
       "name email role"
     );
@@ -135,6 +135,30 @@ export const deleteNotificationController = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Server error",
+    });
+  }
+};
+
+export const getPostsByRole = async (req, res) => {
+  try {
+    const { role } = req.params;
+
+    const posts = await Post.find()
+      .populate("author", "name email role")
+      .sort({ createdAt: -1 });
+
+    // Filter out posts where populate returned null
+    const filteredPosts = posts.filter((post) => post.author.role == role);
+
+    res.status(200).json({
+      success: true,
+      data: filteredPosts,
+    });
+  } catch (error) {
+    console.error("Error fetching posts by role:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error while fetching posts by role.",
     });
   }
 };
