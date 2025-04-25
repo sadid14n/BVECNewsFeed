@@ -7,35 +7,39 @@ const Navbar = () => {
   return (
     <>
       {/* First Sticky Navbar: Logo and College Name */}
-      <nav className="bg-white p-4 shadow-md sticky top-0 z-50">
-        <div className="container mx-auto flex items-center justify-between relative">
+      <nav className="bg-white shadow-md z-50">
+        <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row items-center justify-between px-4 py-4 gap-4 sm:gap-0 relative">
           {/* Left: Logo */}
           <div className="flex items-center space-x-2">
-            <img src="/logoNew.png" alt="LOGO" className="h-12 w-auto" />
+            <img src="/logoNew.png" alt="LOGO" className="h-14 w-auto" />
           </div>
 
           {/* Center: College Name */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
-            <h4 className="text-lg font-semibold">
+          <div className="text-center sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
+            <h1 className="text-xl sm:text-2xl font-bold text-blue-900">
               BARAK VALLEY ENGINEERING COLLEGE
-            </h4>
-            <span className="text-sm text-gray-600">
-              Karimganj, Assam - 788701
-            </span>
+            </h1>
+            <h2 className="text-lg sm:text-xl font-semibold text-green-600">
+              News Feed
+            </h2>
+            <p className="text-sm text-gray-500">Karimganj, Assam - 788701</p>
           </div>
 
-          {/* Right: Search Box */}
-          <div className="flex items-center">
-            <input
-              type="text"
-              placeholder="Search"
-              className="border border-gray-300 px-4 py-1 pl-10 rounded-l-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-            <button className="bg-green-500 text-white px-3 py-1 rounded-r-full hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+          {/* Right: Search and Login */}
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search"
+                className="border border-gray-300 rounded-full px-4 py-1 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+              <span className="absolute left-3 top-1.5 text-gray-400">🔍</span>
+            </div>
+            <button className="bg-green-500 text-white px-4 py-1.5 rounded-full hover:bg-green-600 transition">
               Search
             </button>
 
-            {/* Login/Register Button */}
+            {/* Login / Dashboard */}
             {auth?.token ? (
               <Link
                 to="/authorities/profile"
@@ -47,15 +51,15 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="bg-blue-900 text-white px-4 py-1.5 rounded-full hover:bg-blue-800 transition font-medium text-sm mr-2"
+                  className="bg-blue-900 text-white px-4 py-1.5 rounded-full hover:bg-blue-800 transition font-medium text-sm"
                 >
-                  Authority Login
+                  Login
                 </Link>
                 <Link
                   to="/register"
                   className="bg-blue-900 text-white px-4 py-1.5 rounded-full hover:bg-blue-800 transition font-medium text-sm"
                 >
-                  Authority Register
+                  Register
                 </Link>
               </>
             )}
@@ -64,7 +68,7 @@ const Navbar = () => {
       </nav>
 
       {/* Second Sticky Navbar: Menu */}
-      <nav className="bg-black p-4 shadow-md sticky top-[80px] z-40">
+      <nav className="bg-black p-4 shadow-md sticky top-0 z-40">
         <div className="container mx-auto">
           <ul className="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-green-400 text-sm sm:text-base font-medium">
             <Link to={"/"} className="hover:text-white">

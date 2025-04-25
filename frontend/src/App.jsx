@@ -13,6 +13,7 @@ import AuthCreateNotification from "./Pages/Authorities/AuthCreateNotification";
 import ViewNotification from "./Pages/Authorities/ViewNotification";
 import ShowNotification from "./Pages/ShowNotification";
 import Dept from "./Pages/Dept";
+import Club from "./Pages/Club";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/sample" element={<Sample />} />
       <Route path="/department/:id" element={<Dept />} />
+      <Route path="/club/:id" element={<Club />} />
 
       <Route path="/notifications/:id" element={<ShowNotification />} />
 

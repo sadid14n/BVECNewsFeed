@@ -5,25 +5,25 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import NotificationBox from "./../component/NotificationBox";
 
-const Dept = () => {
-  const [department, setDepartment] = useState();
+const Club = () => {
+  const [club, setClub] = useState();
   const [notifications, setNotifications] = useState([]);
 
   const { id } = useParams();
 
-  const getDepartmentInfo = async () => {
+  const getClubInfo = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/user/get-department/${id}`
+        `http://localhost:3000/api/v1/user/get-club/${id}`
       );
       console.log(res.data.user);
-      setDepartment(res.data.user);
+      setClub(res.data.user);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getDepartmentNotification = async () => {
+  const getClubNotification = async () => {
     try {
       const res = await axios.get(
         `http://localhost:3000/api/v1/notifications/get-notification/user/${id}`
@@ -36,14 +36,14 @@ const Dept = () => {
   };
 
   useEffect(() => {
-    getDepartmentInfo();
-    getDepartmentNotification();
+    getClubInfo();
+    getClubNotification();
   }, []);
   return (
     <Layout>
       <div>
         <h1 className="text-center text-4xl py-4 bg-blue-300">
-          {department && department.name}
+          {club && club.name}
         </h1>
       </div>
       <div className="w-[80%] mx-auto bg-slate-100 mt-5">
@@ -56,4 +56,4 @@ const Dept = () => {
   );
 };
 
-export default Dept;
+export default Club;

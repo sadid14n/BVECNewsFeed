@@ -3,7 +3,8 @@ import {
   createNotificationController,
   deleteNotificationController,
   getAllNotificationController,
-  getNotificationsByAuthorEmail,
+  getNotificationsByAuthorID,
+  getNotificationsForAdmin,
   getPostsByRole,
   getSingleNotificationController,
 } from "../controllers/notificationController.js";
@@ -33,16 +34,20 @@ router.post(
 );
 
 router.get("/getAllNotifications", getAllNotificationController);
+
 router.get(
   "/getAllNotificationsByAuthor",
   requireSignIn,
-  getNotificationsByAuthorEmail
+  getNotificationsForAdmin
 );
 
 // view single notifications
 router.get("/notification/:id", getSingleNotificationController);
 
 router.delete("/delete/:id", requireSignIn, deleteNotificationController);
+
 router.get("/role/:role", getPostsByRole);
+
+router.get("/get-notification/user/:id", getNotificationsByAuthorID);
 
 export default router;

@@ -138,10 +138,32 @@ const getProfileByRoleController = async (req, res) => {
   }
 };
 
+const getProfileByIdController = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(id).populate("posts", "title");
+
+    if (user) {
+      return res.status(200).send({
+        success: true,
+        message: "User find successfully",
+        user,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .send({ success: false, message: "Erron in controller" });
+  }
+};
+
 export {
   registerController,
   loginController,
   testController,
   getProfileByRoleController,
   updateUserProfileController,
+  getProfileByIdController,
 };

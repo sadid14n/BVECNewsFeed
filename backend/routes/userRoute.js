@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getProfileByIdController,
   getProfileByRoleController,
   loginController,
   registerController,
@@ -22,5 +23,7 @@ router.get("/user-auth", requireSignIn, (req, res) => {
 });
 
 router.get("/role/:role", getProfileByRoleController);
+router.get("/get-department/:id", getProfileByIdController);
+router.get("/get-club/:id", getProfileByIdController);
 
 export default router;

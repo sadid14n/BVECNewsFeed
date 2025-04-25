@@ -55,7 +55,7 @@ export const getAllNotificationController = async (req, res) => {
   }
 };
 
-export const getNotificationsByAuthorEmail = async (req, res) => {
+export const getNotificationsForAdmin = async (req, res) => {
   const userId = req.user;
 
   try {
@@ -160,5 +160,18 @@ export const getPostsByRole = async (req, res) => {
       success: false,
       message: "Server error while fetching posts by role.",
     });
+  }
+};
+
+export const getNotificationsByAuthorID = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const notifications = await Post.find({ author: id });
+
+    res.status(200).json({ success: true, data: notifications });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };

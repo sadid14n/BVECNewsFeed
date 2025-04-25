@@ -15,7 +15,7 @@ const Card = ({ titleName, link }) => {
 
         <button
           onClick={() => navigate(link)}
-          className="mt-auto bg-blue-900 text-white py-2 px-4 rounded-xl hover:bg-blue-800 transition"
+          className="mt-auto bg-blue-900 text-white py-2 px-4 rounded-xl hover:bg-blue-800 transition cursor-pointer"
         >
           Visit
         </button>
