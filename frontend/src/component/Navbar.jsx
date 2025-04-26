@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
+import logo from "../assets/bvec.jpg";
+import Menu from "../data/Menu.js";
 
 const Navbar = () => {
   const [auth, setAuth] = useAuth();
@@ -11,7 +13,7 @@ const Navbar = () => {
         <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row items-center justify-between px-4 py-4 gap-4 sm:gap-0 relative">
           {/* Left: Logo */}
           <div className="flex items-center space-x-2">
-            <img src="/logoNew.png" alt="LOGO" className="h-14 w-auto" />
+            <img src={logo} alt="bvec" className="h-22 w-auto" />
           </div>
 
           {/* Center: College Name */}
@@ -27,7 +29,7 @@ const Navbar = () => {
 
           {/* Right: Search and Login */}
           <div className="flex items-center gap-2">
-            <div className="relative">
+            {/* <div className="relative">
               <input
                 type="text"
                 placeholder="Search"
@@ -37,7 +39,7 @@ const Navbar = () => {
             </div>
             <button className="bg-green-500 text-white px-4 py-1.5 rounded-full hover:bg-green-600 transition">
               Search
-            </button>
+            </button> */}
 
             {/* Login / Dashboard */}
             {auth?.token ? (
@@ -71,54 +73,11 @@ const Navbar = () => {
       <nav className="bg-black p-4 shadow-md sticky top-0 z-40">
         <div className="container mx-auto">
           <ul className="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-green-400 text-sm sm:text-base font-medium">
-            <Link to={"/"} className="hover:text-white">
-              Home
-            </Link>
-            <li>
-              <a href="#about_us" className="hover:text-white">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="#Administration" className="hover:text-white">
-                Administration
-              </a>
-            </li>
-            <li>
-              <a href="#Academics" className="hover:text-white">
-                Academics
-              </a>
-            </li>
-            <li>
-              <a href="#Departments" className="hover:text-white">
-                Department
-              </a>
-            </li>
-            <li>
-              <a href="#Committees" className="hover:text-white">
-                Committees
-              </a>
-            </li>
-            <li>
-              <a href="#Facilities" className="hover:text-white">
-                Facilities
-              </a>
-            </li>
-            <li>
-              <a href="#Contact_Us" className="hover:text-white">
-                Contact Us
-              </a>
-            </li>
-            <li>
-              <a href="#Study_Material" className="hover:text-white">
-                Study Material
-              </a>
-            </li>
-            <li>
-              <a href="#Others" className="hover:text-white">
-                Others
-              </a>
-            </li>
+            {Menu.map((item, i) => (
+              <Link to={item.path} key={i} className="hover:text-white">
+                {item.name}
+              </Link>
+            ))}
           </ul>
         </div>
       </nav>

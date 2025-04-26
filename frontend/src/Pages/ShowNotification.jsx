@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import PDFViewer from "../component/PDFViewer";
 import { useAuth } from "../Context/AuthContext";
-import PDF from "../assets/pdfcon.pdf";
 
 import {
   FacebookShareButton,

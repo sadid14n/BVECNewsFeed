@@ -14,6 +14,7 @@ import ViewNotification from "./Pages/Authorities/ViewNotification";
 import ShowNotification from "./Pages/ShowNotification";
 import Dept from "./Pages/Dept";
 import Club from "./Pages/Club";
+import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
         />
         <Route path="view-notification" element={<ViewNotification />} />
       </Route>
+
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
