@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import Layout from "../component/Layout";
-import { useData } from "../Context/DataContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NotificationBox from "./../component/NotificationBox";
+import EventCard from "../component/EventCard.jsx";
 
 const Dept = () => {
   const [department, setDepartment] = useState();
   const [notifications, setNotifications] = useState([]);
+  const [events, setEvents] = useState([]);
 
   const { id } = useParams();
 
@@ -35,9 +36,22 @@ const Dept = () => {
     }
   };
 
+  const getDepartmentEvents = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:3000/api/v1/events/get-events/user/${id}`
+      );
+      console.log("Events", res.data.data);
+      setEvents(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getDepartmentInfo();
     getDepartmentNotification();
+    getDepartmentEvents();
   }, []);
   return (
     <Layout>
@@ -51,6 +65,25 @@ const Dept = () => {
           heading={"All Notifications"}
           notificationList={notifications}
         />
+      </div>
+
+      <div className="w-[80%] mx-auto mt-10">
+        <h2 className="text-4xl font-semibold mb-4 pb-4">Recent Events:</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {events.length > 0 ? (
+            events.map((event) => (
+              <EventCard
+                key={event._id}
+                image={`http://localhost:3000/banners/${event.banner}`}
+                title={event.title}
+                description={event.description}
+                eventId={event._id}
+              />
+            ))
+          ) : (
+            <p className="text-center col-span-full">No events available.</p>
+          )}
+        </div>
       </div>
     </Layout>
   );

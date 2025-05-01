@@ -5,6 +5,7 @@ import cors from "cors";
 
 import userRoutes from "./routes/userRoute.js";
 import notificationRoutes from "./routes/notificationRoutes.js";
+import eventRoute from "./routes/eventRoute.js";
 
 dotenv.config();
 connectDB();
@@ -20,9 +21,11 @@ server.use(
   })
 );
 server.use("/files", express.static("files"));
+server.use("/banners", express.static("banners"));
 
 server.use("/api/v1/user", userRoutes);
 server.use("/api/v1/notifications", notificationRoutes);
+server.use("/api/v1/events", eventRoute);
 
 let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
 let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password

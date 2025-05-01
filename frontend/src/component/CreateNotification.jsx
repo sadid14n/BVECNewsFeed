@@ -86,7 +86,7 @@ const CreateNotification = () => {
           <input
             ref={fileInputRef}
             type="file"
-            accept="application/pdf"
+            accept="application/pdf, image/png, image/jpeg"
             className="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4
                        file:rounded-full file:border-0
                        file:text-sm file:font-semibold

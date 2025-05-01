@@ -4,7 +4,7 @@ const PostSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     description: { type: String },
-    file: { type: String, required: true },
+    file: { type: String },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

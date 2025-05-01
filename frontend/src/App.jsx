@@ -15,6 +15,9 @@ import ShowNotification from "./Pages/ShowNotification";
 import Dept from "./Pages/Dept";
 import Club from "./Pages/Club";
 import PageNotFound from "./Pages/PageNotFound";
+import CreateEvent from "./Pages/Authorities/CreateEvent";
+import ViewEvents from "./Pages/Authorities/ViewEvents";
+import ShowEvent from "./Pages/ShowEvent";
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
       <Route path="/club/:id" element={<Club />} />
 
       <Route path="/notifications/:id" element={<ShowNotification />} />
+      <Route path="/event/:id" element={<ShowEvent />} />
 
       <Route path="/authorities" element={<PrivateRoute />}>
         <Route path="profile" element={<AuthoritiesProfile />} />
@@ -37,6 +41,8 @@ function App() {
           element={<AuthCreateNotification />}
         />
         <Route path="view-notification" element={<ViewNotification />} />
+        <Route path="view-event" element={<ViewEvents />} />
+        <Route path="create-event" element={<CreateEvent />} />
       </Route>
 
       <Route path="*" element={<PageNotFound />} />

@@ -148,7 +148,9 @@ export const getPostsByRole = async (req, res) => {
       .sort({ createdAt: -1 });
 
     // Filter out posts where populate returned null
-    const filteredPosts = posts.filter((post) => post.author.role == role);
+    const filteredPosts = posts.filter(
+      (post) => post.author && post.author.role === role
+    );
 
     res.status(200).json({
       success: true,

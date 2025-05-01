@@ -44,12 +44,28 @@ const AdminMenu = () => {
           📝 Create Notification
         </button>
         <button
+          onClick={() => navigate("/authorities/create-event")}
+          className={`text-left px-4 py-2 rounded transition cursor-pointer ${isActive(
+            "/authorities/create-event"
+          )}`}
+        >
+          📝 Create Event
+        </button>
+        <button
           onClick={() => navigate("/authorities/view-notification")}
           className={`text-left px-4 py-2 rounded transition cursor-pointer ${isActive(
             "/authorities/view-notification"
           )}`}
         >
           📄 View Notifications
+        </button>
+        <button
+          onClick={() => navigate("/authorities/view-event")}
+          className={`text-left px-4 py-2 rounded transition cursor-pointer ${isActive(
+            "/authorities/view-notification"
+          )}`}
+        >
+          📄 View Events
         </button>
         <button
           onClick={handleLogout}
@@ -102,6 +118,24 @@ const AdminMenu = () => {
             className="text-lg px-4 py-2 rounded transition cursor-pointer"
           >
             📄 View Notifications
+          </button>
+
+          <button
+            onClick={() => navigate("/authorities/create-event")}
+            className={`text-left px-4 py-2 rounded transition cursor-pointer ${isActive(
+              "/authorities/create-event"
+            )}`}
+          >
+            📝 Create Event
+          </button>
+
+          <button
+            onClick={() => navigate("/authorities/view-event")}
+            className={`text-left px-4 py-2 rounded transition cursor-pointer ${isActive(
+              "/authorities/view-notification"
+            )}`}
+          >
+            📄 View Events
           </button>
           <button
             onClick={() => {

@@ -1,7 +1,7 @@
 const Menu = [
   {
     name: "Home",
-    paht: "/",
+    path: "/",
   },
   {
     name: "About",

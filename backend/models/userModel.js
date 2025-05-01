@@ -16,6 +16,11 @@ const UserSchema = new mongoose.Schema(
       ref: "Post",
       default: [],
     },
+    events: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: "EventModel",
+      default: [],
+    },
   },
   { timestamps: true }
 );
