@@ -45,11 +45,7 @@ const Layout = ({ children }) => {
                   About Us
                 </a>
               </li>
-              <li>
-                <a href="/departments" className="hover:text-white transition">
-                  Departments
-                </a>
-              </li>
+
               <li>
                 <a href="/contact" className="hover:text-white transition">
                   Contact

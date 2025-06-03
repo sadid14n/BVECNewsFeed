@@ -75,6 +75,12 @@ const Navbar = () => {
             Home
           </Link>
           <Link
+            to={"/about"}
+            className=" px-5 py-1 rounded-md bg-blue-700 hover:scale-110 hover:bg-blue-950 active:bg-green-400"
+          >
+            About
+          </Link>
+          <Link
             to={"/contact"}
             className="px-5 py-1 rounded-md bg-blue-700 hover:scale-110 hover:bg-blue-950 active:bg-green-400"
           >
