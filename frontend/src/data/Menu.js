@@ -4,6 +4,10 @@ const Menu = [
     path: "/",
   },
   {
+    name: "Departments",
+    path: "/departments",
+  },
+  {
     name: "About",
     path: "/about",
   },

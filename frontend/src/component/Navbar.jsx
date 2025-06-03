@@ -24,7 +24,9 @@ const Navbar = () => {
             <h2 className="text-lg sm:text-xl font-semibold text-green-600">
               News Feed
             </h2>
-            <p className="text-sm text-gray-500">Karimganj, Assam - 788701</p>
+            <p className="text-sm text-gray-500">
+              Nirala, Sribhumi, Assam - 788701
+            </p>
           </div>
 
           {/* Right: Search and Login */}
@@ -55,13 +57,7 @@ const Navbar = () => {
                   to="/login"
                   className="bg-blue-900 text-white px-4 py-1.5 rounded-full hover:bg-blue-800 transition font-medium text-sm"
                 >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  className="bg-blue-900 text-white px-4 py-1.5 rounded-full hover:bg-blue-800 transition font-medium text-sm"
-                >
-                  Register
+                  Login/Register for Authoreties
                 </Link>
               </>
             )}
@@ -71,14 +67,19 @@ const Navbar = () => {
 
       {/* Second Sticky Navbar: Menu */}
       <nav className="bg-black p-4 shadow-md sticky top-0 z-40">
-        <div className="container mx-auto">
-          <ul className="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-green-400 text-sm sm:text-base font-medium">
-            {Menu.map((item, i) => (
-              <Link to={item.path} key={i} className="hover:text-white">
-                {item.name}
-              </Link>
-            ))}
-          </ul>
+        <div className="text-white flex gap-5 justify-center ">
+          <Link
+            to={"/"}
+            className=" px-5 py-1 rounded-md bg-blue-700 hover:scale-110 hover:bg-blue-950 active:bg-green-400"
+          >
+            Home
+          </Link>
+          <Link
+            to={"/contact"}
+            className="px-5 py-1 rounded-md bg-blue-700 hover:scale-110 hover:bg-blue-950 active:bg-green-400"
+          >
+            Contact Us
+          </Link>
         </div>
       </nav>
     </>

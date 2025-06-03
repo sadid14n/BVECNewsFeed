@@ -106,7 +106,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => navigate("/register")}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-blue-600 hover:underline font-medium cursor-pointer"
               >
                 Register here
               </button>

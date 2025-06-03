@@ -16,6 +16,7 @@ const Register = () => {
     role: "",
     dept: "",
     club: "",
+    secretCode: "",
   });
 
   useEffect(() => {
@@ -40,16 +41,21 @@ const Register = () => {
         formData
       );
       console.log("Registration success:", res.data);
-      toast.success("Registration successful!");
-      // Clear form
-      setFormData({ name: "", email: "", password: "", role: "" });
-      navigate("/login");
+
+      if (res.data.success) {
+        toast.success("Registration successful!");
+        // Clear form
+        setFormData({ name: "", email: "", password: "", role: "" });
+        navigate("/login");
+      } else {
+        toast.error(res.data.message);
+      }
     } catch (error) {
       console.error(
         "Registration error:",
         error.response?.data || error.message
       );
-      alert("Registration failed. Please try again.");
+      toast("Registration failed. Please try again.");
     }
   };
 
@@ -165,6 +171,21 @@ const Register = () => {
             </div>
           )}
 
+          <div>
+            <label className="block mb-1 text-gray-600 font-medium">
+              Enter the Secret Code
+            </label>
+            <input
+              type="text"
+              name="secretCode"
+              required
+              value={formData.secretCode}
+              onChange={handleChange}
+              placeholder="Enter secret code provided by admin"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
           <button
             type="submit"
             className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
@@ -178,7 +199,7 @@ const Register = () => {
               <button
                 type="button"
                 onClick={() => navigate("/login")}
-                className="text-blue-600 hover:underline font-medium"
+                className="text-blue-600 hover:underline font-medium cursor-pointer"
               >
                 Login here
               </button>

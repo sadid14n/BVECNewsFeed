@@ -9,10 +9,23 @@ const registerController = async (req, res) => {
   try {
     const existingUser = await User.findOne({ email: req.body.email });
 
+    // Check if the user already exist
     if (existingUser) {
       return res.status(200).send({
         success: false,
         message: "User already exists. Please login",
+      });
+    }
+
+    // Convert email to ENV-friendly format
+    const emailKey = `CODE_${req.body.email.replace(/[@.]/g, "_")}`;
+    const correctCode = process.env[emailKey];
+
+    // Validate if email is authorized
+    if (!correctCode || correctCode !== req.body.secretCode) {
+      return res.status(401).send({
+        success: false,
+        message: "Unauthorized: Invalid secret code or email",
       });
     }
 

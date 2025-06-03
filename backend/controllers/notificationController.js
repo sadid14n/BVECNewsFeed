@@ -59,7 +59,9 @@ export const getNotificationsForAdmin = async (req, res) => {
   const userId = req.user;
 
   try {
-    const notifications = await Post.find({ author: userId });
+    const notifications = await Post.find({ author: userId }).sort({
+      createdAt: -1,
+    });
 
     res.status(200).json({ success: true, data: notifications });
   } catch (error) {
@@ -169,7 +171,9 @@ export const getNotificationsByAuthorID = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const notifications = await Post.find({ author: id });
+    const notifications = await Post.find({ author: id }).sort({
+      createdAt: -1,
+    });
 
     res.status(200).json({ success: true, data: notifications });
   } catch (error) {

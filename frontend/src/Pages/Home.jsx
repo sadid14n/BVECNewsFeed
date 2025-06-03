@@ -134,7 +134,7 @@ const Home = () => {
             </div>
 
             {/* Department Profile */}
-            <section>
+            <section className="py-7">
               <h2 className="text-3xl font-semibold text-blue-900 mb-4">
                 Departments
               </h2>
@@ -151,7 +151,7 @@ const Home = () => {
             </section>
 
             {/* Club Profiles */}
-            <section>
+            <section className="py-7 pb-10">
               <h2 className="text-3xl font-semibold text-blue-900 mb-4">
                 Clubs
               </h2>
