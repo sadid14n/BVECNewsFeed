@@ -5,7 +5,7 @@ import SadidProfile from "../assets/sadid-profile.jpg";
 const Developers = () => {
   const contributors = [
     {
-      name: "Manash Seal",
+      name: "Manas Seal",
       role: "Contributor",
       image: "#",
       github: "#",

@@ -166,6 +166,8 @@ const Register = () => {
                 <option value="">Select a Club</option>
                 <option value="code">Code Club</option>
                 <option value="dance">Dance Club</option>
+                <option value="dance">Music Club</option>
+                <option value="dance">Drama Club</option>
               </select>
             </div>
           )}

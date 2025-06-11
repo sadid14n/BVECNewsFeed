@@ -37,6 +37,10 @@ server.use("/api/v1/events", eventRoute);
 let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
 let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
 
+server.get("/api/v1/ping", (req, res) => {
+  res.status(200).json({ message: "Backend is live ✅" });
+});
+
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
