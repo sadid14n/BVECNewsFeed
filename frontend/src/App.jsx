@@ -7,7 +7,7 @@ import Sample from "./Pages/Sample";
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import AuthoritiesProfile from "./Pages/Authorities/AuthoritiesProfile";
-import Auth from "./Auth/auth";
+import Auth from "./Auth/Auth";
 import { PrivateRoute } from "./component/Route/PrivateRoute";
 import AuthCreateNotification from "./Pages/Authorities/AuthCreateNotification";
 import ViewNotification from "./Pages/Authorities/ViewNotification";
