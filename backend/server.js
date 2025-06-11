@@ -11,15 +11,22 @@ dotenv.config();
 connectDB();
 
 const server = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 server.use(express.json());
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://your-frontend.vercel.app", // replace with your actual Vercel URL
+];
+
 server.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
+
 server.use("/files", express.static("files"));
 server.use("/banners", express.static("banners"));
 
