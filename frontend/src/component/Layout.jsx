@@ -51,6 +51,11 @@ const Layout = ({ children }) => {
                   Contact
                 </a>
               </li>
+              <li>
+                <a href="/developers" className="hover:text-white transition">
+                  Developers
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -76,6 +81,16 @@ const Layout = ({ children }) => {
         <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
           <p>&copy; 2026 Barak Valley Engineering College</p>
           <p>All rights reserved</p>
+
+          <p>
+            Developed by{" "}
+            <a
+              href="/developers"
+              className="text-blue-400 hover:text-blue-300 transition underline"
+            >
+              Sadid & Team
+            </a>
+          </p>
         </div>
       </footer>
     </>

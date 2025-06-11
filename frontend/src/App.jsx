@@ -20,6 +20,7 @@ import ViewEvents from "./Pages/Authorities/ViewEvents";
 import ShowEvent from "./Pages/ShowEvent";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
+import Developers from "./Pages/Developers";
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
 
       <Route path="/contact" element={<Contact />} />
       <Route path="/about" element={<About />} />
+
+      <Route path="/developers" element={<Developers />} />
 
       <Route path="/authorities" element={<PrivateRoute />}>
         <Route path="profile" element={<AuthoritiesProfile />} />
