@@ -32,14 +32,13 @@ const Register = () => {
     }));
   };
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/user/register",
-        formData
-      );
+      const res = await axios.post(`${baseURL}/api/v1/user/register`, formData);
       console.log("Registration success:", res.data);
 
       if (res.data.success) {

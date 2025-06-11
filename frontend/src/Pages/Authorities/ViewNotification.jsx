@@ -8,10 +8,12 @@ const ViewNotification = () => {
   const [notifications, setNotifications] = useState([]);
   const navigate = useNavigate();
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const fetchNotifications = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/notifications/getAllNotificationsByAuthor"
+        `${baseURL}/api/v1/notifications/getAllNotificationsByAuthor`
       );
       if (res.data.success) {
         setNotifications(res.data.data);

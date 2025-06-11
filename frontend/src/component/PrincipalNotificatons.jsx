@@ -6,11 +6,13 @@ const PrincipalNotifications = () => {
   const [notifications, setNotifications] = useState([]);
   const principalEmail = "me@bvec.com"; // Replace with actual email
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
         const res = await axios.post(
-          `http://localhost:3000/api/v1/notifications/getAllNotificationsByAuthor`,
+          `${baseURL}/api/v1/notifications/getAllNotificationsByAuthor`,
           { email: principalEmail }
         );
         setNotifications(res.data.data);

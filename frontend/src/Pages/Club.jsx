@@ -11,13 +11,13 @@ const Club = () => {
   const [notifications, setNotifications] = useState([]);
   const [events, setEvents] = useState([]);
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const { id } = useParams();
 
   const getClubInfo = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:3000/api/v1/user/get-club/${id}`
-      );
+      const res = await axios.get(`${baseURL}/api/v1/user/get-club/${id}`);
       console.log(res.data.user);
       setClub(res.data.user);
     } catch (error) {
@@ -28,7 +28,7 @@ const Club = () => {
   const getClubNotification = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/notifications/get-notification/user/${id}`
+        `${baseURL}/api/v1/notifications/get-notification/user/${id}`
       );
       console.log("Notifications", res.data.data);
       setNotifications(res.data.data);
@@ -40,7 +40,7 @@ const Club = () => {
   const getClubEvents = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/events/get-events/user/${id}`
+        `${baseURL}/api/v1/events/get-events/user/${id}`
       );
       console.log("Events", res.data.data);
       setEvents(res.data.data);
@@ -75,7 +75,7 @@ const Club = () => {
             events.map((event) => (
               <EventCard
                 key={event._id}
-                image={`http://localhost:3000/banners/${event.banner}`}
+                image={`${baseURL}/banners/${event.banner}`}
                 title={event.title}
                 description={event.description}
                 eventId={event._id}

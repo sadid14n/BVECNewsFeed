@@ -12,10 +12,12 @@ const Dept = () => {
 
   const { id } = useParams();
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const getDepartmentInfo = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/user/get-department/${id}`
+        `${baseURL}/api/v1/user/get-department/${id}`
       );
       console.log(res.data.user);
       setDepartment(res.data.user);
@@ -27,7 +29,7 @@ const Dept = () => {
   const getDepartmentNotification = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/notifications/get-notification/user/${id}`
+        `${baseURL}/api/v1/notifications/get-notification/user/${id}`
       );
       console.log("Notifications", res.data.data);
       setNotifications(res.data.data);
@@ -39,7 +41,7 @@ const Dept = () => {
   const getDepartmentEvents = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/events/get-events/user/${id}`
+        `${baseURL}/api/v1/events/get-events/user/${id}`
       );
       console.log("Events", res.data.data);
       setEvents(res.data.data);
@@ -74,7 +76,7 @@ const Dept = () => {
             events.map((event) => (
               <EventCard
                 key={event._id}
-                image={`http://localhost:3000/banners/${event.banner}`}
+                image={`${baseURL}/banners/${event.banner}`}
                 title={event.title}
                 description={event.description}
                 eventId={event._id}

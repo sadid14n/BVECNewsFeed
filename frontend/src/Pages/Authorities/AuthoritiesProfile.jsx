@@ -11,10 +11,12 @@ const AuthoritiesProfile = () => {
   const [auth, setAuth] = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const handleSave = async (updatedData) => {
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/v1/user/update-profile/`,
+        `${baseURL}/api/v1/user/update-profile/`,
         updatedData
       );
       setAuth({

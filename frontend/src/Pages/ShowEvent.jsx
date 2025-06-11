@@ -24,12 +24,12 @@ const ShowEvent = () => {
 
   const navigate = useNavigate();
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:3000/api/v1/events/event/${id}`
-        );
+        const res = await axios.get(`${baseURL}/api/v1/events/event/${id}`);
         console.log(res.data.data);
         if (res.data.success) {
           setEvent(res.data.data);
@@ -65,7 +65,7 @@ const ShowEvent = () => {
   const handleDelete = async () => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/v1/events/delete/${event._id}`
+        `${baseURL}/api/v1/events/delete/${event._id}`
       );
       alert("Event deleted successfully!");
       // Optional: redirect or update UI
@@ -104,7 +104,7 @@ const ShowEvent = () => {
           {event.banner && (
             <>
               <img
-                src={`http://localhost:3000/banners/${event.banner}`}
+                src={`${baseURL}/banners/${event.banner}`}
                 alt="Event Banner"
                 onClick={() => setShowFullImage(true)}
                 className="rounded-lg w-full h-60 object-cover mb-6 cursor-pointer"
@@ -116,7 +116,7 @@ const ShowEvent = () => {
                   onClick={() => setShowFullImage(false)}
                 >
                   <img
-                    src={`http://localhost:3000/banners/${event.banner}`}
+                    src={`${baseURL}/banners/${event.banner}`}
                     alt="Full Banner"
                     className="max-w-full max-h-full rounded-lg"
                   />

@@ -9,10 +9,12 @@ const ViewEvents = () => {
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const fetchEvents = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/events/getEventsForAuthor"
+        `${baseURL}/api/v1/events/getEventsForAuthor`
       );
       if (res.data.success) {
         console.log(res.data.data);
@@ -66,7 +68,7 @@ const ViewEvents = () => {
                     <EventCard
                       key={event._id}
                       image={
-                        `http://localhost:3000/banners/${event.banner}` ||
+                        `${baseURL}/banners/${event.banner}` ||
                         "https://via.placeholder.com/400x250"
                       }
                       title={event.title}

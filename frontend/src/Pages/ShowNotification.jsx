@@ -24,8 +24,9 @@ const ShowNotification = () => {
 
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-  let PDFUrl =
-    "http://localhost:3000/files/1744830798632-QUESTIONNAIRE FOR RESEARCH PROJECT2.pdf";
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
+  let PDFUrl = `${baseURL}/files/1744830798632-QUESTIONNAIRE FOR RESEARCH PROJECT2.pdf`;
 
   const navigate = useNavigate();
 
@@ -33,10 +34,10 @@ const ShowNotification = () => {
     const fetchNotification = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/v1/notifications/notification/${id}`
+          `${baseURL}/api/v1/notifications/notification/${id}`
         );
         setNotification(res.data.data);
-        setPdfUrl(`http://localhost:3000/files/${res.data.data.file}`);
+        setPdfUrl(`${baseURL}/files/${res.data.data.file}`);
       } catch (error) {
         console.error("Error fetching notification:", error);
       }
@@ -72,7 +73,7 @@ const ShowNotification = () => {
   const handleDelete = async () => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/v1/notifications/delete/${notification._id}`
+        `${baseURL}/api/v1/notifications/delete/${notification._id}`
       );
       alert("Notification deleted successfully!");
       // Optional: redirect or update UI

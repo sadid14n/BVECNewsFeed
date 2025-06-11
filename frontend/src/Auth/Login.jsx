@@ -10,6 +10,8 @@ const Login = () => {
   const location = useLocation();
   const [auth, setAuth] = useAuth();
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     if (auth?.token) {
       navigate(location.state || "/authorities/profile");
@@ -32,10 +34,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/user/login",
-        formData
-      );
+      const res = await axios.post(`${baseURL}/api/v1/user/login`, formData);
       console.log("Login success:", res.data);
       setAuth({
         ...auth,

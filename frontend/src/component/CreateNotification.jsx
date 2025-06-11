@@ -11,6 +11,8 @@ const CreateNotification = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,7 +23,7 @@ const CreateNotification = () => {
 
     try {
       const result = await axios.post(
-        "http://localhost:3000/api/v1/notifications/upload-files",
+        `${baseURL}/api/v1/notifications/upload-files`,
         formData,
         {
           headers: {

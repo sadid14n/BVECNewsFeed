@@ -18,11 +18,13 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   // fetching post for principal
   const fetchPostsByRole = async (role) => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/notifications/role/${role}`
+        `${baseURL}/api/v1/notifications/role/${role}`
       );
       return res.data.data;
     } catch (err) {
@@ -34,9 +36,7 @@ const Home = () => {
   // fetch User by role
   const getUserByRole = async (role) => {
     try {
-      const res = await axios.get(
-        `http://localhost:3000/api/v1/user/role/${role}`
-      );
+      const res = await axios.get(`${baseURL}/api/v1/user/role/${role}`);
       return res.data.data;
     } catch (error) {
       console.log("Getting error while fetch user by role ", error);
@@ -81,7 +81,7 @@ const Home = () => {
               {/* Principal Desk Section */}
               <div className="w-full md:w-1/2 border-2 border-blue-900 rounded-2xl p-4 shadow-md bg-white">
                 <h2 className="text-3xl font-semibold text-blue-900 mb-4">
-                  Principal's Desk
+                  Principal's Office
                 </h2>
 
                 <div className="space-y-3 max-h-[50vh] overflow-y-auto custom-scroll">
@@ -108,7 +108,7 @@ const Home = () => {
               {/* Student Union Section */}
               <div className="w-full md:w-1/2 border-2 border-blue-900 rounded-2xl p-4 shadow-md bg-white">
                 <h2 className="text-3xl font-semibold text-blue-900 mb-4">
-                  Student Union's Desk
+                  Student Union
                 </h2>
 
                 <div className="space-y-3 max-h-[50vh] overflow-y-auto custom-scroll">

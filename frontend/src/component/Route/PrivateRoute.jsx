@@ -8,12 +8,12 @@ export const PrivateRoute = () => {
   const [ok, setOk] = useState(false);
   const [auth, setAuth] = useAuth();
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     const authCheck = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:3000/api/v1/user/user-auth"
-        );
+        const res = await axios.get(`${baseURL}/api/v1/user/user-auth`);
         if (res.data.ok) {
           setOk(true);
         } else {

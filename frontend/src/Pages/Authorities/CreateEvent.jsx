@@ -17,12 +17,14 @@ const CreateEvent = () => {
 
   const fileInputRef = useRef(null);
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/events/create-event",
+        `${baseURL}/api/v1/events/create-event`,
         event,
         {
           headers: {
