@@ -64,7 +64,7 @@ const Layout = ({ children }) => {
             <h2 className="text-2xl font-bold mb-3 text-center sm:text-left">
               Important Links
             </h2>
-            <div className="text-center sm:text-left">
+            <div className="text-center sm:text-left flex flex-col">
               <a
                 href="https://www.bvec.ac.in/"
                 target="_blank"
@@ -72,6 +72,22 @@ const Layout = ({ children }) => {
                 className="text-blue-400 hover:text-blue-300 transition"
               >
                 BVEC Main Website
+              </a>
+              <a
+                href="https://www.facebook.com/www.bvec.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 transition"
+              >
+                BVEC Facebook Page
+              </a>
+              <a
+                href="https://astu.ac.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 transition"
+              >
+                ASTU Website
               </a>
             </div>
           </div>
