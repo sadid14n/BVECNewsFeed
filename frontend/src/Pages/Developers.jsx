@@ -3,13 +3,14 @@ import Layout from "../component/Layout";
 import SadidProfile from "../assets/sadid-profile.jpg";
 import Fajrul from "../assets/fajrul.jpg";
 import Kangkan from "../assets/kangkan.jpg";
+import Manas from "../assets/manas.jpg";
 
 const Developers = () => {
   const contributors = [
     {
       name: "Manas Seal",
       role: "Contributor",
-      image: "#",
+      image: Manas,
       github: "#",
       linkedin: "#",
     },
