@@ -7,7 +7,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.vers
 
 const PDFViewer = ({ pdfFile }) => {
   const [numPages, setNumPages] = useState(null);
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState(0.5);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
