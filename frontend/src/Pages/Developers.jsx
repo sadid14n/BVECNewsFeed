@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "../component/Layout";
 import SadidProfile from "../assets/sadid-profile.jpg";
+import Fajrul from "../assets/fajrul.jpg";
+import Kangkan from "../assets/kangkan.jpg";
 
 const Developers = () => {
   const contributors = [
@@ -14,7 +16,7 @@ const Developers = () => {
     {
       name: "Kangkan Kalita",
       role: "Contributor",
-      image: "#",
+      image: Kangkan,
       github: "#",
       linkedin: "#",
     },
@@ -28,7 +30,7 @@ const Developers = () => {
     {
       name: "Fajrul Islam",
       role: "Contributer",
-      image: "#",
+      image: Fajrul,
       github: "#",
       linkedin: "#",
     },
