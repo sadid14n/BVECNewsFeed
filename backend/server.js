@@ -17,7 +17,7 @@ server.use(express.json());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://bvec-news-feed-plcm.vercel.app/", // replace with your actual Vercel URL
+  "https://bvec-news-feed-plcm.vercel.app", // replace with your actual Vercel URL
 ];
 
 server.use(
