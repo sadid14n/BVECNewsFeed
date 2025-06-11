@@ -57,7 +57,7 @@ const Navbar = () => {
                   to="/login"
                   className="bg-blue-900 text-white px-4 py-1.5 rounded-full hover:bg-blue-800 transition font-medium text-sm"
                 >
-                  Login/Register for Authoreties
+                  Login/Register for Authorities
                 </Link>
               </>
             )}
